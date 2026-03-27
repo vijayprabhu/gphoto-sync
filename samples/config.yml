@@ -1,0 +1,53 @@
+# gphotos-sync configuration file
+#
+# Default location: ~/.gphotos-sync/config.yml
+# Override with: python -m src.photo_sync --config /path/to/config.yml
+#
+# Each top-level key defines a named profile. Run with:
+#   --profile <name>   sync a single profile
+#   --profile all      sync all profiles sequentially
+#
+# IMPORTANT: All path values must be absolute paths. Relative paths are rejected.
+
+# ── Profile: personal ─────────────────────────────────────────────────────────
+personal:
+  # Directory where the Playwright browser session is stored.
+  # The file `playwright_state.json` is created here after first login.
+  # Must be an absolute path. Do NOT commit this directory to version control.
+  token_dir: /home/alice/.gphotos-sync/sessions/personal
+
+  # Root folder where downloaded photos are saved.
+  # Photos are organised automatically as: <destination>/YYYY/MM/DD/filename.jpg
+  # Must be an absolute path. The directory is created if it does not exist.
+  destination: /home/alice/Photos/personal
+
+  # (Optional) How many days back to look when no --date or date range is given.
+  # -1 means "yesterday" (the last fully completed day). Default: -1
+  date_offset: -1
+
+  # (Optional) Print per-photo progress lines in addition to the run summary.
+  # Equivalent to passing --verbose on the command line. Default: false
+  verbose: false
+
+
+# ── Profile: work ─────────────────────────────────────────────────────────────
+work:
+  # Separate session directory keeps work and personal Google accounts isolated.
+  token_dir: /home/alice/.gphotos-sync/sessions/work
+
+  # Downloaded photos land in a different root folder for this account.
+  destination: /home/alice/Photos/work
+
+  # (Optional) Pull two days back by default for this profile.
+  date_offset: -2
+
+  # (Optional) Show verbose per-photo output for the work profile.
+  verbose: true
+
+
+# ── Windows path example (uncomment and adapt) ────────────────────────────────
+# windows-personal:
+#   token_dir: C:\Users\Alice\.gphotos-sync\sessions\personal
+#   destination: C:\Users\Alice\Pictures\GooglePhotos
+#   date_offset: -1
+#   verbose: false

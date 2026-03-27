@@ -1,0 +1,5 @@
+playwright>=1.40.0
+# After pip install, run: playwright install chromium
+requests>=2.31.0
+pytest>=7.4.0
+pyyaml>=6.0

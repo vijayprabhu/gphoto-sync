@@ -1,0 +1,6 @@
+# Merge strategy overrides
+#
+# CLAUDE.md is auto-updated by the agent context script and manually curated.
+# The union merge driver keeps all lines from both sides instead of generating
+# conflict markers — avoids noise when two branches both touch this file.
+CLAUDE.md merge=union

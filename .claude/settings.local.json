@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(powershell -File \".specify/scripts/powershell/update-agent-context.ps1\" -AgentType claude)"
+    ]
+  }
+}
